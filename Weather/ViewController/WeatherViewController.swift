@@ -21,7 +21,7 @@ class WeatherViewController: UIViewController{
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
     var fiveDayData : [WeatherModel] = []
-    var weatherData: [WeatherData] = []
+    var weatherData: [ForecastData] = []
     
     @IBOutlet weak var searchTextField: UITextField!
     override func viewDidLoad(){
@@ -39,7 +39,7 @@ class WeatherViewController: UIViewController{
         fiveDayCollectionView.dataSource = self
         
         
-        fetchWeatherData()
+//        fetchWeatherData()
     }
     
     @IBAction func searchPressed(_ sender: UIButton) {
@@ -51,34 +51,7 @@ class WeatherViewController: UIViewController{
         locationManager.requestLocation()
     }
     
-    func fetchWeatherData() {
-           guard let url = URL(string: "https://api.openweathermap.org/data/2.5/forecast?APPID=c9b1b4c2118bc83cebcee9fb62f69c37&&units=metric") else {
-               print("Invalid URL")
-               return
-           }
 
-           let task = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
-               guard let data = data, error == nil else {
-                   print("Error fetching data: \(error?.localizedDescription ?? "Unknown error")")
-                   return
-               }
-
-               do {
-                   let decoder = JSONDecoder()
-                   let weatherData = try decoder.decode(ForecastData.self, from: data)
-                   self?.weatherData = weatherData.list
-                   
-
-                   DispatchQueue.main.async {
-                       self?.fiveDayCollectionView.reloadData()
-                   }
-               } catch {
-                   print("Error decoding data: \(error.localizedDescription)")
-               }
-           }
-
-           task.resume()
-       }
     
 }
 
@@ -87,19 +60,30 @@ class WeatherViewController: UIViewController{
 //MARK: - WeatherViewController
 extension WeatherViewController:WeatherManagerDelegate{
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: [WeatherModel]) {
+        
+
+        
         DispatchQueue.main.async{
+            
+            self.fiveDayData = weather
+            
+            self.fiveDayCollectionView.reloadData()
+            
+            
             for model in weather {
                 print("Condition ID: \(model.conditionId)")
                 print("City Name: \(model.cityName)")
                 print("Temperature: \(model.temperature)°C")
                 
             }
+            
+        
         }
     }
     
     
     func didUpdateWeather(_ weatherManagerManager: WeatherManager, weather: WeatherModel){
-        print(weather.temperature)
+
         DispatchQueue.main.async{
             self.temperatureLabel.text = weather.temperatureString
             self.conditionImageView.image = UIImage(systemName: weather.conditionName)
@@ -144,8 +128,11 @@ extension WeatherViewController:UICollectionViewDelegate,UICollectionViewDataSou
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCell", for: indexPath) as! WeatherCollectionViewCell
 
-               let weatherInfo = weatherData[indexPath.item]
-                cell.temperatureLabel.text = String(weatherInfo.main.temp)
+               let weatherInfo = fiveDayData[indexPath.item]
+            let formatTemp = String(format: "%.0f", weatherInfo.temperature)
+        print("#############>>>>>\(weatherInfo.temperature)°C")
+
+        cell.temperatureLabel.text = "\(formatTemp)°C"
                return cell
     }
     

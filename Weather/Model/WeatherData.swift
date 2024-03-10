@@ -18,6 +18,7 @@ struct WeatherData: Decodable{
 struct Main: Decodable{
     
     let temp: Double
+    
 }
 
 struct Weather:Decodable{
@@ -27,13 +28,22 @@ struct Weather:Decodable{
 
 
 struct ForecastData: Decodable{
-    let list: [WeatherData]
+    let list: [List]
     let city: City
- 
+}
+
+struct List: Decodable{
+    let main: Main
+    let weather: [WeatherForecastData]
+}
+
+struct WeatherForecastData: Decodable{
+    let main: String
+    let description: String
+    let icon: String
 }
 
 struct City: Decodable{
-    
     let name: String
     let id: Int
 }

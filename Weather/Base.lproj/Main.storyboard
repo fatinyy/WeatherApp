@@ -230,6 +230,7 @@
                                                                 <constraint firstAttribute="height" constant="30" id="NDo-hd-8n3"/>
                                                                 <constraint firstAttribute="width" constant="50" id="y8I-hc-46Y"/>
                                                             </constraints>
+                                                            <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </slider>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30.14" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZjH-7I-DSK">
                                                             <rect key="frame" x="300.33333333333331" y="13.666666666666664" width="35.666666666666686" height="30"/>

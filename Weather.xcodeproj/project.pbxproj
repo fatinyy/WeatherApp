@@ -22,6 +22,7 @@
 		041966EC2B9845010012ED08 /* WeatherUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041966EB2B9845010012ED08 /* WeatherUITestsLaunchTests.swift */; };
 		04419F782B99E9B700D00FC9 /* WeaDat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04419F772B99E9B700D00FC9 /* WeaDat.swift */; };
 		04419F7A2B99EBBE00D00FC9 /* WeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04419F792B99EBBE00D00FC9 /* WeatherCollectionViewCell.swift */; };
+		04A2396E2B9E396200E2B0DB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A2396D2B9E396200E2B0DB /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		041966EB2B9845010012ED08 /* WeatherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		04419F772B99E9B700D00FC9 /* WeaDat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaDat.swift; sourceTree = "<group>"; };
 		04419F792B99EBBE00D00FC9 /* WeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewCell.swift; sourceTree = "<group>"; };
+		04A2396D2B9E396200E2B0DB /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 			children = (
 				04092F502B997336003747DD /* WeatherViewController.swift */,
 				04419F792B99EBBE00D00FC9 /* WeatherCollectionViewCell.swift */,
+				04A2396D2B9E396200E2B0DB /* MapViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				041966CD2B9844FA0012ED08 /* HomeViewController.swift in Sources */,
 				04092F4D2B99730D003747DD /* WeatherData.swift in Sources */,
 				04419F782B99E9B700D00FC9 /* WeaDat.swift in Sources */,
+				04A2396E2B9E396200E2B0DB /* MapViewController.swift in Sources */,
 				041966C92B9844FA0012ED08 /* AppDelegate.swift in Sources */,
 				04092F4B2B9972EC003747DD /* WeatherManager.swift in Sources */,
 				04419F7A2B99EBBE00D00FC9 /* WeatherCollectionViewCell.swift in Sources */,

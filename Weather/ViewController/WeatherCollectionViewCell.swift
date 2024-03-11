@@ -11,5 +11,11 @@ import UIKit
 
 class WeatherCollectionViewCell:UICollectionViewCell{
     
+    @IBOutlet weak var maxTemp: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var weatherImage: UIImageView!
+    @IBOutlet weak var weatherSlider: UISlider!
+    
 }
+

@@ -51,7 +51,15 @@ class WeatherViewController: UIViewController{
         locationManager.requestLocation()
     }
     
+    @IBAction func mapButtonPressed(_ sender: UIButton) {
+        
+             let storyboard = UIStoryboard(name: "Main", bundle: nil)
+             let mapView = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
 
+             mapView.modalPresentationStyle = .popover
+             self.present(mapView, animated: true, completion: nil)
+    }
+    
     
 }
 

@@ -330,6 +330,9 @@
                                 <state key="normal" image="map" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="mapButtonPressed:" destination="Pfz-AK-BIl" eventType="touchUpInside" id="Xag-OA-Bcz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HmP-q2-nSc"/>
@@ -373,23 +376,39 @@
         <!--Map View Controller-->
         <scene sceneID="zgE-aO-0Te">
             <objects>
-                <viewController id="8qf-vX-M3w" customClass="MapViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="8qf-vX-M3w" customClass="MapViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mI7-ST-x8z">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xRz-VX-xuN">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xRz-VX-xuN">
                                 <rect key="frame" x="0.0" y="47" width="390" height="763"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8nU-WM-PzU">
+                                <rect key="frame" x="30" y="78" width="30" height="28.666666666666671"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="I0b-fs-DYH"/>
+                                    <constraint firstAttribute="height" constant="30" id="XkA-Fs-ffn"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" backgroundImage="xmark.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="closeButtonPressed:" destination="8qf-vX-M3w" eventType="touchUpInside" id="Oz0-D6-2Y5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Wde-aR-zqv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="8nU-WM-PzU" firstAttribute="top" secondItem="Wde-aR-zqv" secondAttribute="top" constant="30" id="7AK-4Q-BUH"/>
                             <constraint firstItem="xRz-VX-xuN" firstAttribute="top" secondItem="Wde-aR-zqv" secondAttribute="top" id="FXq-t2-5m3"/>
                             <constraint firstItem="Wde-aR-zqv" firstAttribute="trailing" secondItem="xRz-VX-xuN" secondAttribute="trailing" id="See-aX-HZm"/>
                             <constraint firstItem="xRz-VX-xuN" firstAttribute="leading" secondItem="Wde-aR-zqv" secondAttribute="leading" id="Umy-QD-PsG"/>
                             <constraint firstItem="Wde-aR-zqv" firstAttribute="bottom" secondItem="xRz-VX-xuN" secondAttribute="bottom" id="lyv-8i-Zg6"/>
+                            <constraint firstItem="8nU-WM-PzU" firstAttribute="leading" secondItem="Wde-aR-zqv" secondAttribute="leading" constant="30" id="qMU-nK-8pz"/>
                         </constraints>
                     </view>
                     <connections>
@@ -398,7 +417,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEe-ab-b7w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2508" y="-14"/>
+            <point key="canvasLocation" x="2507.6923076923076" y="-14.218009478672984"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TpE-Cz-mWz">
@@ -432,6 +451,7 @@
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="map" catalog="system" width="128" height="112"/>
         <image name="sun.max.fill" catalog="system" width="128" height="125"/>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

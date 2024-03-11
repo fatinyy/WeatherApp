@@ -13,6 +13,8 @@ struct WeatherModel {
     let conditionId:Int
     let cityName:String
     let temperature: Double
+    let tempMin:Double
+    let tempMax:Double
     let descriptions: String
     
     var temperatureString: String{
@@ -41,5 +43,7 @@ struct WeatherModel {
                     return "cloud"
                 }
     }
+    
+    
     
 }

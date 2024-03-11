@@ -136,12 +136,15 @@ extension WeatherViewController:UICollectionViewDelegate,UICollectionViewDataSou
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCell", for: indexPath) as! WeatherCollectionViewCell
 
-               let weatherInfo = fiveDayData[indexPath.item]
-            let formatTemp = String(format: "%.0f", weatherInfo.temperature)
-        print("#############>>>>>\(weatherInfo.temperature)°C")
+        let weatherInfo = fiveDayData[indexPath.item]
+        
+        let minTemp = String(format: "%.0f", weatherInfo.tempMin)
+        let maxTemp = String(format: "%.0f", weatherInfo.tempMax)
+        
+        cell.temperatureLabel.text = "\(minTemp)°C"
+        cell.maxTemp.text = "\(maxTemp)°C"
 
-        cell.temperatureLabel.text = "\(formatTemp)°C"
-               return cell
+        return cell
     }
     
     

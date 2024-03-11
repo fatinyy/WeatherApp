@@ -15,11 +15,12 @@ struct WeatherData: Decodable{
 }
 
 
-struct Main: Decodable{
-    
+struct Main: Decodable {
     let temp: Double
-    
+    let temp_min:Double
+    let temp_max:Double
 }
+ 
 
 struct Weather:Decodable{
     let id: Int
@@ -40,10 +41,10 @@ struct List: Decodable{
 struct WeatherForecastData: Decodable{
     let main: String
     let description: String
-    let icon: String
 }
 
 struct City: Decodable{
     let name: String
     let id: Int
 }
+

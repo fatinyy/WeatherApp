@@ -60,23 +60,26 @@ struct WeatherModel {
     
     private func dayOfWeek(from dateStringOrTimestamp: String) -> String? {
            let formatter = DateFormatter()
-           
-           // Check if the input is a Unix timestamp (assuming it's seconds since 1970)
-           if let unixTime = Double(dateStringOrTimestamp) {
-               let date = Date(timeIntervalSince1970: unixTime)
-               formatter.dateFormat = "EEEE"  // EEEE for full day of the week like "Monday"
-               return formatter.string(from: date)
-           } else {
-               // Assuming the input is a date string in "yyyy-MM-dd HH:mm:ss" format
+               
                formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                if let date = formatter.date(from: dateStringOrTimestamp) {
                    let calendar = Calendar.current
-                   let day = calendar.component(.weekday, from: date)
-                   return calendar.weekdaySymbols[day - 1]
+                   let today = calendar.startOfDay(for: Date())
+                    let inputDay = calendar.startOfDay(for: date)
+                   
+                   
+                   if today == inputDay {
+                                return "Today"
+                            } else {
+                                let day = calendar.component(.weekday, from: date)
+                                return calendar.weekdaySymbols[day - 1]
+                            }
+                   
+                   
                } else {
                    return nil
                }
-           }
+           
        }
     
 }

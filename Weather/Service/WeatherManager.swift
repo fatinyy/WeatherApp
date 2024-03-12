@@ -113,9 +113,10 @@ struct WeatherManager{
             let maxTemp = decodedData.main.temp_max
             let name = decodedData.name
             let descriptions = decodedData.weather[0].description
+            let dateTimeString = "Today"
             
             
-            let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp,tempMin:decodedData.main.temp_min,tempMax: maxTemp, descriptions: descriptions)
+            let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp,tempMin:decodedData.main.temp_min,tempMax: maxTemp, descriptions: descriptions, dateTimeString:dateTimeString)
             
             print(weather.conditionName)
             return weather
@@ -141,13 +142,17 @@ struct WeatherManager{
             
             var weatherModels: [WeatherModel] = []
             
-            for index in 0..<min(5, decodedData.list.count) {
+    
+            for index in stride(from: 0, to: decodedData.list.count, by: 8) {
                 
+
                 let forecast = decodedData.list[index]
+                
+                print("#######\(forecast.dt_txt)")
                 
                 let weatherModel = WeatherModel(conditionId: decodedData.city.id,
                                                 cityName: decodedData.city.name,
-                                                temperature: forecast.main.temp,tempMin:forecast.main.temp_min,tempMax:forecast.main.temp_max,descriptions: forecast.weather[0].description)
+                                                temperature: forecast.main.temp,tempMin:forecast.main.temp_min,tempMax:forecast.main.temp_max,descriptions: forecast.weather[0].description, dateTimeString: forecast.dt_txt)
                 weatherModels.append(weatherModel)
             }
             return weatherModels

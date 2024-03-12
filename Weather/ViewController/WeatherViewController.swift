@@ -141,8 +141,10 @@ extension WeatherViewController:UICollectionViewDelegate,UICollectionViewDataSou
         let minTemp = String(format: "%.0f", weatherInfo.tempMin)
         let maxTemp = String(format: "%.0f", weatherInfo.tempMax)
         
+        cell.dayLabel.text = weatherInfo.dayOfWeekString
         cell.temperatureLabel.text = "\(minTemp)°C"
         cell.maxTemp.text = "\(maxTemp)°C"
+        cell.weatherImage.image = UIImage(systemName: weatherInfo.conditionName)
 
         return cell
     }
